@@ -1,8 +1,8 @@
 {
   "type": "module",
   "private": true,
-  "name": "zik-proxy",
-  "description": "A proxy server is required to enable message streaming between GPT4All, OpenAI models, and the Zik frontend.",
+  "name": "zik-gpt4all",
+  "description": "A server for GPT4ALL with server-sent events support",
   "version": "0.0.1",
   "main": "server.js",
   "scripts": {
