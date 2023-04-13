@@ -4,9 +4,9 @@
   "name": "zik-gpt4all",
   "description": "A server for GPT4ALL with server-sent events support",
   "version": "0.0.1",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/server.js"
   },
   "author": "Ron Masas",
   "license": "GPL2",
