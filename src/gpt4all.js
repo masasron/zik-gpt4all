@@ -9,8 +9,9 @@ class GPT4All {
         this._child = null;
         this._onData = new Set();
         this.systemPrompt = systemPrompt;
-        this.executablePath = executablePath || path.resolve(os.homedir(), '.nomic/gpt4all');
-        this.modelPath = modelPath || path.resolve(os.homedir(), '.nomic/gpt4all-lora-quantized.bin');
+        this.modelArgs = process.env.GPT4ALL_MODEL_ARGS ? process.env.GPT4ALL_MODEL_ARGS.split(" ") : [];
+        this.executablePath = executablePath || process.env.MODEL_EXE_PATH || path.resolve(os.homedir(), '.nomic/gpt4all');
+        this.modelPath = modelPath || process.env.MODEL_PATH || path.resolve(os.homedir(), '.nomic/gpt4all-lora-quantized.bin');
 
         if (!fs.existsSync(this.executablePath)) {
             throw new Error(`Executable not found: ${this.executablePath}`);
@@ -26,7 +27,7 @@ class GPT4All {
     }
 
     open() {
-        this._child = spawn(this.executablePath, ['--model', this.modelPath]);
+        this._child = spawn(this.executablePath, ['--model', this.modelPath, ...this.modelArgs]);
 
         this._child.stdout.on('data', (data) => {
             // if no handler is registered, print to stdout

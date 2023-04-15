@@ -6,7 +6,8 @@
   "version": "0.0.1",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "start_ggml": "node src/ggml-server.js"
   },
   "author": "Ron Masas",
   "license": "GPL2",
